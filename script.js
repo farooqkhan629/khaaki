@@ -1,24 +1,21 @@
-/**
+/*
  * Khaki Luxury Real Estate - Symmetrical Emerald Motion System
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Lock baseline background canvas actions while drawing transitions
-    document.body.classList.add("is-loading");
+    // Note: 'is-loading' is preset on <body> in index.html to prevent layout thrashing
 
-    // Primary Unified Execution Orchestration Framework
-    let presentationTimeline = gsap.timeline({
-        onComplete: () => {
-            document.body.classList.remove("is-loading");
-            // Instantiate sliding system engines post reveal completion
-            bootEditorialSlider();
-        }
-    });
+    // 1. Preloader class ko fawran hatayein aur slider boot karein (LCP Speed Boost)
+    document.body.classList.remove("is-loading");
+    bootEditorialSlider();
+
+    // 2. Primary Unified Execution Orchestration Framework
+    let presentationTimeline = gsap.timeline();
 
     // --- SYSTEM PHASE 1: EXECUTE LOGO GEOMETRIC SWEEP ---
     presentationTimeline.fromTo(".logo-mask-container",
         { clipPath: "inset(0% 100% 0% 0%)" },
-        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "power2.inOut" }
+        { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8, ease: "power2.inOut" }
     );
 
     // Fade away preloader mask canvas frame gracefully
@@ -27,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 0.5,
         ease: "power2.out"
     }, "+=0.1");
+
+    presentationTimeline.set("#preloader", { display: "none" });
 
     presentationTimeline.set("#preloader", { display: "none" });
 

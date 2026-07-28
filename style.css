@@ -2828,7 +2828,7 @@ body {
     justify-content: center;
     text-align: center;
     /* High-end minimalist architectural placeholder image */
-    background: url('assets/images/about1.jpg') no-repeat center center/cover;
+    background: url('assets/images/about1.webp') no-repeat center center/cover;
     background-color: #0b1a13; /* Fallback deep brand green */
     overflow: hidden;
 }
