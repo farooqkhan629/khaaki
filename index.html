@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
   <link rel="preload" as="image" href="assets/images/hero2.webp" fetchpriority="high">
 
   <!-- SEO Meta Tags -->
@@ -31,7 +31,7 @@
   </noscript>
 
   <!-- 🔥 CRITICAL LCP BOOSTER: Preload Hero First Slide Image -->
-  <link rel="preload" fetchpriority="high" as="image" href="assets/images/hero2.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/images/hero2.webp" fetchpriority="high">
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -104,20 +104,58 @@
     <!-- 3. PREMIUM DEEP EMERALD HERO AREA -->
     <main id="main-content">
         <section class="editorial-hero">
-            
             <!-- Cinematic Background Slider Engine -->
             <div class="bg-slider-engine">
-                <!-- Image 1: Modern Ultra-Luxury Villa with Warm Gold Lighting & Emerald Green Pools -->
-                <div class="slide active-slide" style="background-image: linear-gradient(180deg, rgba(4, 21, 12, 0.45) 0%, rgba(4, 21, 12, 0.75) 100%), url(assets/images/hero2.webp);"></div>
-                
-                <!-- Image 2: Minimalist Symmetrical Masterpiece with Lush Green Landscape -->
-                <div class="slide" style="background-image: linear-gradient(180deg, rgba(4, 21, 12, 0.45) 0%, rgba(4, 21, 12, 0.75) 100%), url(assets/images/header3.webp);"></div>
-                
-                <!-- Image 3: Premium Editorial Architectural Facade with Deep Tropical Vibrancy -->
-                <div class="slide" style="background-image: linear-gradient(180deg, rgba(4, 21, 12, 0.45) 0%, rgba(4, 21, 12, 0.75) 100%), url(assets/images/hero3.webp);"></div>
 
-                <!-- Image 4: High-End Open Lounge Opening into Deep Velvet Greenery -->
-                <div class="slide" style="background-image: linear-gradient(180deg, rgba(4, 21, 12, 0.45) 0%, rgba(4, 21, 12, 0.75) 100%), url(assets/images/hero4.webp);"></div>
+                <!-- Slide 1: LCP IMAGE — fetchpriority HIGH, eager load -->
+                <div class="slide active-slide">
+                    <img
+                        src="assets/images/hero2.webp"
+                        fetchpriority="high"
+                        loading="eager"
+                        decoding="sync"
+                        alt="Modern Ultra-Luxury Villa with Warm Gold Lighting"
+                        class="slide-bg-img"
+                    >
+                    <div class="slide-overlay"></div>
+                </div>
+
+                <!-- Slide 2: lazy load -->
+                <div class="slide">
+                    <img
+                        src="assets/images/header3.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Minimalist Symmetrical Masterpiece with Lush Green Landscape"
+                        class="slide-bg-img"
+                    >
+                    <div class="slide-overlay"></div>
+                </div>
+
+                <!-- Slide 3: lazy load -->
+                <div class="slide">
+                    <img
+                        src="assets/images/hero3.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Premium Editorial Architectural Facade"
+                        class="slide-bg-img"
+                    >
+                    <div class="slide-overlay"></div>
+                </div>
+
+                <!-- Slide 4: lazy load -->
+                <div class="slide">
+                    <img
+                        src="assets/images/hero4.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt="High-End Open Lounge with Deep Velvet Greenery"
+                        class="slide-bg-img"
+                    >
+                    <div class="slide-overlay"></div>
+                </div>
+
             </div>
 
             <!-- Foreground Copy Layout (Pure Elegance) -->
@@ -125,18 +163,18 @@
                 <div class="text-mask">
                     <span class="hero-micro-tag">THE EPITOME OF MINIMALIST DESIGN</span>
                 </div>
-                
+
                 <h1 class="hero-main-title">
                     <div class="title-mask"><span>Timeless Spaces.</span></div>
                     <div class="title-mask"><span class="gold-accent-text">Architectural Perfection.</span></div>
                 </h1>
-                
+
                 <div class="desc-mask">
                     <p class="hero-editorial-desc">
                         Experience residential masterpieces crafted exclusively for refined tastes, blending symmetrical geometry with elite luxury layouts.
                     </p>
                 </div>
-                
+
                 <div class="btn-mask">
                     <a href="#" class="luxury-action-btn">
                         <span>Discover Portfolios</span>
@@ -147,7 +185,7 @@
                 </div>
             </div>
 
-            <!-- Dashboard Slider Control Architecture (Numbers Removed) -->
+            <!-- Dashboard Slider Control Architecture -->
             <div class="interactive-slider-controls">
                 <div class="slider-dots-indicator">
                     <span class="dot active-dot"></span>
@@ -156,7 +194,7 @@
                     <span class="dot"></span>
                 </div>
             </div>
-            
+
         </section>
 
    <section class="discovery-engine-section">

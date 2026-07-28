@@ -127,53 +127,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // --- CONTINUOUS BRIGHT SLIDER REPEATER LOGIC ---
-    function bootEditorialSlider() {
-        const slides = document.querySelectorAll(".slide");
-        const dots = document.querySelectorAll(".dot");
-        let currentIdx = 0;
-        const autoIntervalTime = 5000; // Track shifts exactly every 5 seconds
+function bootEditorialSlider() {
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+    let currentIdx = 0;
+    const autoIntervalTime = 5000;
 
-        const runActiveKenBurns = (targetSlideNode) => {
-            gsap.fromTo(targetSlideNode, 
-                { scale: 1.05 },
-                { scale: 1, duration: autoIntervalTime / 1000, ease: "none" }
-            );
-        };
+    // Initial state set karo — sirf pehli slide visible
+    slides.forEach((slide, i) => {
+        slide.style.opacity = i === 0 ? "1" : "0";
+        slide.style.zIndex = i === 0 ? "2" : "1";
+        slide.style.position = "absolute";
+        slide.style.inset = "0";
+    });
 
-        // Fire initial architectural image focus track loop scaling run
-        runActiveKenBurns(slides[0]);
+    // Ken Burns — img tag pe apply karo
+    const runActiveKenBurns = (targetSlideNode) => {
+        const img = targetSlideNode.querySelector(".slide-bg-img");
+        if (!img) return;
+        gsap.fromTo(img,
+            { scale: 1.06 },
+            { scale: 1, duration: autoIntervalTime / 1000, ease: "none" }
+        );
+    };
 
-        function progressToNextFrame() {
-            let outgoingIdx = currentIdx;
-            currentIdx = (currentIdx + 1) % slides.length;
+    runActiveKenBurns(slides[0]);
 
-            // Sort multi-layered surface positions perfectly
-            slides.forEach(s => s.style.zIndex = 1);
-            slides[outgoingIdx].style.zIndex = 2;
-            slides[currentIdx].style.zIndex = 3;
+    function progressToNextFrame() {
+        let outgoingIdx = currentIdx;
+        currentIdx = (currentIdx + 1) % slides.length;
 
-            // Trigger elite cross-fade render sweeps
-            gsap.fromTo(slides[currentIdx], 
-                { opacity: 0 },
-                { opacity: 1, duration: 1.2, ease: "power2.inOut" }
-            );
+        slides.forEach(s => s.style.zIndex = "1");
+        slides[outgoingIdx].style.zIndex = "2";
+        slides[currentIdx].style.zIndex = "3";
 
-            gsap.to(slides[outgoingIdx], {
-                opacity: 0,
-                duration: 1.2,
-                ease: "power2.inOut"
-            });
+        gsap.fromTo(slides[currentIdx],
+            { opacity: 0 },
+            { opacity: 1, duration: 1.2, ease: "power2.inOut" }
+        );
 
-            // Re-fire continuous tracking motion configuration checks
-            runActiveKenBurns(slides[currentIdx]);
+        gsap.to(slides[outgoingIdx], {
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.inOut"
+        });
 
-            // Sync dynamic highlights on dot elements
-            dots.forEach(d => d.classList.remove("active-dot"));
-            dots[currentIdx].classList.add("active-dot");
-        }
+        runActiveKenBurns(slides[currentIdx]);
 
-        setInterval(progressToNextFrame, autoIntervalTime);
+        dots.forEach(d => d.classList.remove("active-dot"));
+        dots[currentIdx].classList.add("active-dot");
     }
+
+    setInterval(progressToNextFrame, autoIntervalTime);
+}
 });
 
 // --- EXTRA ADVANCED LUXURY DROPDOWN INTERACTION CONTROLLER ENGINE ---
