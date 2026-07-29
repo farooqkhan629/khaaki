@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-  <link rel="preload" as="image" href="assets/images/hero2.webp" fetchpriority="high">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
   <title>Khaki Luxury Estates | Emerald Masterpiece</title>
@@ -13,6 +12,10 @@
   <!-- Preconnect for Faster Connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 🔥 PERFECT LCP PRELOAD (Responsive Preload for Mobile & Desktop) -->
+  <link rel="preload" as="image" href="assets/images/hero2-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero2.webp" media="(min-width: 769px)" fetchpriority="high">
 
   <!-- Combined Asynchronous Google Fonts (Non-Blocking) -->
   <link
@@ -30,9 +33,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
   </noscript>
 
-  <!-- 🔥 CRITICAL LCP BOOSTER: Preload Hero First Slide Image -->
-  <link rel="preload" as="image" href="assets/images/hero2.webp" fetchpriority="high">
-
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -46,84 +46,82 @@
     <div id="preloader">
         <div class="loader-inner">
             <div class="logo-mask-container">
-                <img src="assets/images/khakilogo.webp" alt="Khaki Brand Identity" class="brand-logo-massive">
+                <img src="assets/images/khakilogo.webp" alt="Khaki Brand Identity" class="brand-logo-massive" width="200" height="60">
             </div>
         </div>
     </div>
 
-  <!-- =====================================================================
-     02. ULTRA-SLIM FLOATING EMERALD GLASS CAPSULE NAVBAR & SLICE OVERLAY
-===================================================================== -->
-<header class="floating-header" style="opacity: 1;">
-    <div class="header-capsule">
-        <!-- Left Brand Segment (MODIFIED LOGO AREA) -->
-        <div class="logo-area">
-            <a href="#home" class="brand-link">
-                <img src="assets/images/khakilogo.webp" alt="Khaki Corporate Identity" class="navbar-brand-logo">
-            </a>
-        </div>
-        
-        <!-- Center Modernist Navigation Links (Desktop Only) -->
-        <nav class="nav-links-area">
-            <div class="nav-clip"><a href="index.html" class="nav-item reveal-nav active">Home</a></div>
-            <div class="nav-clip"><a href="about.html" class="nav-item reveal-nav">About Brand</a></div>
-            <div class="nav-clip"><a href="estate.html" class="nav-item reveal-nav">Our Estates</a></div>
-            <div class="nav-clip"><a href="contact.html" class="nav-item reveal-nav">Contact Inquire</a></div>
-        </nav>
-        
-        <!-- Right Symmetrical Action Button / Hamburger Area (FIXED CORE) -->
-        <div class="header-action-area">
-            <a href="#contact" class="nav-mini-cta">Book Tour</a>
+    <!-- 02. FLOATING NAVBAR -->
+    <header class="floating-header" style="opacity: 1;">
+        <div class="header-capsule">
+            <div class="logo-area">
+                <a href="#home" class="brand-link">
+                    <img src="assets/images/khakilogo.webp" alt="Khaki Corporate Identity" class="navbar-brand-logo" width="120" height="40">
+                </a>
+            </div>
             
-            <!-- Unique Custom Hamburger Trigger (Forced Flex Target) -->
-            <button class="khaki-burger-trigger" id="burgerTrigger" aria-label="Toggle Menu">
-                <span class="burger-line line-top"></span>
-                <span class="burger-line line-bottom"></span>
-            </button>
+            <nav class="nav-links-area">
+                <div class="nav-clip"><a href="index.html" class="nav-item reveal-nav active">Home</a></div>
+                <div class="nav-clip"><a href="about.html" class="nav-item reveal-nav">About Brand</a></div>
+                <div class="nav-clip"><a href="estate.html" class="nav-item reveal-nav">Our Estates</a></div>
+                <div class="nav-clip"><a href="contact.html" class="nav-item reveal-nav">Contact Inquire</a></div>
+            </nav>
+            
+            <div class="header-action-area">
+                <a href="#contact" class="nav-mini-cta">Book Tour</a>
+                <button class="khaki-burger-trigger" id="burgerTrigger" aria-label="Toggle Menu">
+                    <span class="burger-line line-top"></span>
+                    <span class="burger-line line-bottom"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SLICE OVERLAY MENU -->
+    <div class="kinetic-menu-overlay" id="menuOverlay">
+        <div class="menu-curtain-slice"></div>
+        <div class="menu-curtain-slice"></div>
+        <div class="menu-curtain-slice"></div>
+        
+        <div class="overlay-content-wrapper">
+            <nav class="overlay-nav-matrix">
+                <div class="overlay-link-clip"><a href="index.html" class="overlay-nav-item"> Home</a></div>
+                <div class="overlay-link-clip"><a href="about.html" class="overlay-nav-item"> About Brand</a></div>
+                <div class="overlay-link-clip"><a href="estate.html" class="overlay-nav-item"> Our Estates</a></div>
+                <div class="overlay-link-clip"><a href="contact.html" class="overlay-nav-item"> Contact Inquire</a></div>
+            </nav>
         </div>
     </div>
-</header>
 
-<!-- UNIQUE ARCHITECTURAL SLICE OVERLAY MENU -->
-<div class="kinetic-menu-overlay" id="menuOverlay">
-    <!-- Background divided into 3 responsive vertical layout slices -->
-    <div class="menu-curtain-slice"></div>
-    <div class="menu-curtain-slice"></div>
-    <div class="menu-curtain-slice"></div>
-    
-    <div class="overlay-content-wrapper">
-        <nav class="overlay-nav-matrix">
-            <div class="overlay-link-clip"><a href="index.html" class="overlay-nav-item"> Home</a></div>
-            <div class="overlay-link-clip"><a href="about.html" class="overlay-nav-item"> About Brand</a></div>
-            <div class="overlay-link-clip"><a href="estate.html" class="overlay-nav-item"> Our Estates</a></div>
-            <div class="overlay-link-clip"><a href="contact.html" class="overlay-nav-item"> Contact Inquire</a></div>
-        </nav>
-    </div>
-</div>
-
-    <!-- 3. PREMIUM DEEP EMERALD HERO AREA -->
+    <!-- HERO SECTION -->
     <main id="main-content">
         <section class="editorial-hero">
-            <!-- Cinematic Background Slider Engine -->
             <div class="bg-slider-engine">
 
-                <!-- Slide 1: LCP IMAGE — fetchpriority HIGH, eager load -->
+                <!-- Slide 1: LCP IMAGE (Optimized) -->
                 <div class="slide active-slide">
-                    <img
-                        src="assets/images/hero2.webp"
-                        fetchpriority="high"
-                        loading="eager"
-                        decoding="sync"
-                        alt="Modern Ultra-Luxury Villa with Warm Gold Lighting"
-                        class="slide-bg-img"
-                    >
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="assets/images/hero2-mobile.webp">
+                        <img
+                            src="assets/images/hero2.webp"
+                            width="1920"
+                            height="1080"
+                            fetchpriority="high"
+                            loading="eager"
+                            decoding="async"
+                            alt="Modern Ultra-Luxury Villa with Warm Gold Lighting"
+                            class="slide-bg-img"
+                        >
+                    </picture>
                     <div class="slide-overlay"></div>
                 </div>
 
-                <!-- Slide 2: lazy load -->
+                <!-- Slide 2 -->
                 <div class="slide">
                     <img
                         src="assets/images/header3.webp"
+                        width="1920"
+                        height="1080"
                         loading="lazy"
                         decoding="async"
                         alt="Minimalist Symmetrical Masterpiece with Lush Green Landscape"
@@ -132,10 +130,12 @@
                     <div class="slide-overlay"></div>
                 </div>
 
-                <!-- Slide 3: lazy load -->
+                <!-- Slide 3 -->
                 <div class="slide">
                     <img
                         src="assets/images/hero3.webp"
+                        width="1920"
+                        height="1080"
                         loading="lazy"
                         decoding="async"
                         alt="Premium Editorial Architectural Facade"
@@ -144,10 +144,12 @@
                     <div class="slide-overlay"></div>
                 </div>
 
-                <!-- Slide 4: lazy load -->
+                <!-- Slide 4 -->
                 <div class="slide">
                     <img
                         src="assets/images/hero4.webp"
+                        width="1920"
+                        height="1080"
                         loading="lazy"
                         decoding="async"
                         alt="High-End Open Lounge with Deep Velvet Greenery"
@@ -158,7 +160,6 @@
 
             </div>
 
-            <!-- Foreground Copy Layout (Pure Elegance) -->
             <div class="hero-foreground-content">
                 <div class="text-mask">
                     <span class="hero-micro-tag">THE EPITOME OF MINIMALIST DESIGN</span>
@@ -185,7 +186,6 @@
                 </div>
             </div>
 
-            <!-- Dashboard Slider Control Architecture -->
             <div class="interactive-slider-controls">
                 <div class="slider-dots-indicator">
                     <span class="dot active-dot"></span>
@@ -194,8 +194,8 @@
                     <span class="dot"></span>
                 </div>
             </div>
-
         </section>
+    </main>
 
    <section class="discovery-engine-section">
     <div class="section-container">
