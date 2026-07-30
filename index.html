@@ -9,20 +9,16 @@
   <meta name="description" content="Khaki Luxury Estates offers exclusive residential and commercial property listings, luxury villas, and expert real estate">
   <link rel="canonical" href="https://khaki-green.vercel.app/">
 
-  <!-- Preconnect for External Domains -->
+  <!-- 🔥 CORRECT RESPONSIVE LCP PRELOAD (Fixes Mobile Double-Fetch) -->
+  <link rel="preload" as="image" href="assets/images/hero2-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero2.webp" media="(min-width: 769px)" fetchpriority="high">
+
+  <!-- Preconnect for Faster Fonts Connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- 🚀 HIGH-PRIORITY LCP PRELOAD -->
-  <link rel="preload" as="image" href="assets/images/hero2.webp" fetchpriority="high">
-
-  <!-- Asynchronous Google Fonts (Non-Blocking) -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    media="print"
-    onload="this.media='all'"
-  >
+  <!-- Non-Blocking Google Fonts Loading -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
   </noscript>
@@ -40,156 +36,158 @@
     <div id="preloader">
         <div class="loader-inner">
             <div class="logo-mask-container">
-                <img src="assets/images/khakilogo.webp" alt="Khaki Brand Identity" class="brand-logo-massive" width="200" height="60">
+                <img src="assets/images/khakilogo.webp" alt="Khaki Brand Identity" class="brand-logo-massive">
             </div>
         </div>
     </div>
 
-    <!-- 02. FLOATING NAVBAR -->
-    <header class="floating-header" style="opacity: 1;">
-        <div class="header-capsule">
-            <div class="logo-area">
-                <a href="#home" class="brand-link">
-                    <img src="assets/images/khakilogo.webp" alt="Khaki Corporate Identity" class="navbar-brand-logo" width="120" height="40">
+<!-- =====================================================================
+     02. ULTRA-SLIM FLOATING EMERALD GLASS CAPSULE NAVBAR & SLICE OVERLAY
+===================================================================== -->
+<header class="floating-header" style="opacity: 1;">
+    <div class="header-capsule">
+        <div class="logo-area">
+            <a href="#home" class="brand-link">
+                <img src="assets/images/khakilogo.webp" alt="Khaki Corporate Identity" class="navbar-brand-logo">
+            </a>
+        </div>
+        
+        <nav class="nav-links-area">
+            <div class="nav-clip"><a href="index.html" class="nav-item reveal-nav active">Home</a></div>
+            <div class="nav-clip"><a href="about.html" class="nav-item reveal-nav">About Brand</a></div>
+            <div class="nav-clip"><a href="estate.html" class="nav-item reveal-nav">Our Estates</a></div>
+            <div class="nav-clip"><a href="contact.html" class="nav-item reveal-nav">Contact Inquire</a></div>
+        </nav>
+        
+        <div class="header-action-area">
+            <a href="#contact" class="nav-mini-cta">Book Tour</a>
+            <button class="khaki-burger-trigger" id="burgerTrigger" aria-label="Toggle Menu">
+                <span class="burger-line line-top"></span>
+                <span class="burger-line line-bottom"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- UNIQUE ARCHITECTURAL SLICE OVERLAY MENU -->
+<div class="kinetic-menu-overlay" id="menuOverlay">
+    <div class="menu-curtain-slice"></div>
+    <div class="menu-curtain-slice"></div>
+    <div class="menu-curtain-slice"></div>
+    
+    <div class="overlay-content-wrapper">
+        <nav class="overlay-nav-matrix">
+            <div class="overlay-link-clip"><a href="index.html" class="overlay-nav-item"> Home</a></div>
+            <div class="overlay-link-clip"><a href="about.html" class="overlay-nav-item"> About Brand</a></div>
+            <div class="overlay-link-clip"><a href="estate.html" class="overlay-nav-item"> Our Estates</a></div>
+            <div class="overlay-link-clip"><a href="contact.html" class="overlay-nav-item"> Contact Inquire</a></div>
+        </nav>
+    </div>
+</div>
+
+<!-- HERO SECTION -->
+<main id="main-content">
+    <section class="editorial-hero">
+        <div class="bg-slider-engine">
+
+            <!-- Slide 1: LCP IMAGE (Optimized) -->
+            <div class="slide active-slide">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="assets/images/hero2-mobile.webp">
+                    <img
+                        src="assets/images/hero2.webp"
+                        width="1920"
+                        height="1080"
+                        fetchpriority="high"
+                        loading="eager"
+                        decoding="async"
+                        alt="Modern Ultra-Luxury Villa with Warm Gold Lighting"
+                        class="slide-bg-img"
+                    >
+                </picture>
+                <div class="slide-overlay"></div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img
+                    src="assets/images/header3.webp"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Minimalist Symmetrical Masterpiece with Lush Green Landscape"
+                    class="slide-bg-img"
+                >
+                <div class="slide-overlay"></div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img
+                    src="assets/images/hero3.webp"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Premium Editorial Architectural Facade"
+                    class="slide-bg-img"
+                >
+                <div class="slide-overlay"></div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img
+                    src="assets/images/hero4.webp"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                    alt="High-End Open Lounge with Deep Velvet Greenery"
+                    class="slide-bg-img"
+                >
+                <div class="slide-overlay"></div>
+            </div>
+
+        </div>
+
+        <div class="hero-foreground-content">
+            <div class="text-mask">
+                <span class="hero-micro-tag">THE EPITOME OF MINIMALIST DESIGN</span>
+            </div>
+
+            <h1 class="hero-main-title">
+                <div class="title-mask"><span>Timeless Spaces.</span></div>
+                <div class="title-mask"><span class="gold-accent-text">Architectural Perfection.</span></div>
+            </h1>
+
+            <div class="desc-mask">
+                <p class="hero-editorial-desc">
+                    Experience residential masterpieces crafted exclusively for refined tastes, blending symmetrical geometry with elite luxury layouts.
+                </p>
+            </div>
+
+            <div class="btn-mask">
+                <a href="#" class="luxury-action-btn">
+                    <span>Discover Portfolios</span>
+                    <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </a>
             </div>
-            
-            <nav class="nav-links-area">
-                <div class="nav-clip"><a href="index.html" class="nav-item reveal-nav active">Home</a></div>
-                <div class="nav-clip"><a href="about.html" class="nav-item reveal-nav">About Brand</a></div>
-                <div class="nav-clip"><a href="estate.html" class="nav-item reveal-nav">Our Estates</a></div>
-                <div class="nav-clip"><a href="contact.html" class="nav-item reveal-nav">Contact Inquire</a></div>
-            </nav>
-            
-            <div class="header-action-area">
-                <a href="#contact" class="nav-mini-cta">Book Tour</a>
-                <button class="khaki-burger-trigger" id="burgerTrigger" aria-label="Toggle Menu">
-                    <span class="burger-line line-top"></span>
-                    <span class="burger-line line-bottom"></span>
-                </button>
+        </div>
+
+        <div class="interactive-slider-controls">
+            <div class="slider-dots-indicator">
+                <span class="dot active-dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
-    </header>
-
-    <!-- SLICE OVERLAY MENU -->
-    <div class="kinetic-menu-overlay" id="menuOverlay">
-        <div class="menu-curtain-slice"></div>
-        <div class="menu-curtain-slice"></div>
-        <div class="menu-curtain-slice"></div>
-        
-        <div class="overlay-content-wrapper">
-            <nav class="overlay-nav-matrix">
-                <div class="overlay-link-clip"><a href="index.html" class="overlay-nav-item"> Home</a></div>
-                <div class="overlay-link-clip"><a href="about.html" class="overlay-nav-item"> About Brand</a></div>
-                <div class="overlay-link-clip"><a href="estate.html" class="overlay-nav-item"> Our Estates</a></div>
-                <div class="overlay-link-clip"><a href="contact.html" class="overlay-nav-item"> Contact Inquire</a></div>
-            </nav>
-        </div>
-    </div>
-
-    <!-- HERO SECTION -->
-    <main id="main-content">
-        <section class="editorial-hero">
-            <div class="bg-slider-engine">
-
-                <!-- Slide 1: LCP IMAGE (Optimized) -->
-                <div class="slide active-slide">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="assets/images/hero2-mobile.webp">
-                        <img
-                            src="assets/images/hero2.webp"
-                            width="1920"
-                            height="1080"
-                            fetchpriority="high"
-                            loading="eager"
-                            decoding="async"
-                            alt="Modern Ultra-Luxury Villa with Warm Gold Lighting"
-                            class="slide-bg-img"
-                        >
-                    </picture>
-                    <div class="slide-overlay"></div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="slide">
-                    <img
-                        src="assets/images/header3.webp"
-                        width="1920"
-                        height="1080"
-                        loading="lazy"
-                        decoding="async"
-                        alt="Minimalist Symmetrical Masterpiece with Lush Green Landscape"
-                        class="slide-bg-img"
-                    >
-                    <div class="slide-overlay"></div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="slide">
-                    <img
-                        src="assets/images/hero3.webp"
-                        width="1920"
-                        height="1080"
-                        loading="lazy"
-                        decoding="async"
-                        alt="Premium Editorial Architectural Facade"
-                        class="slide-bg-img"
-                    >
-                    <div class="slide-overlay"></div>
-                </div>
-
-                <!-- Slide 4 -->
-                <div class="slide">
-                    <img
-                        src="assets/images/hero4.webp"
-                        width="1920"
-                        height="1080"
-                        loading="lazy"
-                        decoding="async"
-                        alt="High-End Open Lounge with Deep Velvet Greenery"
-                        class="slide-bg-img"
-                    >
-                    <div class="slide-overlay"></div>
-                </div>
-
-            </div>
-
-            <div class="hero-foreground-content">
-                <div class="text-mask">
-                    <span class="hero-micro-tag">THE EPITOME OF MINIMALIST DESIGN</span>
-                </div>
-
-                <h1 class="hero-main-title">
-                    <div class="title-mask"><span>Timeless Spaces.</span></div>
-                    <div class="title-mask"><span class="gold-accent-text">Architectural Perfection.</span></div>
-                </h1>
-
-                <div class="desc-mask">
-                    <p class="hero-editorial-desc">
-                        Experience residential masterpieces crafted exclusively for refined tastes, blending symmetrical geometry with elite luxury layouts.
-                    </p>
-                </div>
-
-                <div class="btn-mask">
-                    <a href="#" class="luxury-action-btn">
-                        <span>Discover Portfolios</span>
-                        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="interactive-slider-controls">
-                <div class="slider-dots-indicator">
-                    <span class="dot active-dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-            </div>
-        </section>
-    </main>
+    </section>
+</main>
 
    <section class="discovery-engine-section">
     <div class="section-container">
