@@ -340,12 +340,14 @@ body {
 .editorial-hero {
     position: relative;
     width: 100%;
-    height: 100vh;
+    /* 100vh ki jagah 100dvh for mobile dynamic address bar reflow fix */
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 84px; /* Locked content safezone buffer */
+    padding-top: 84px;
     background-color: var(--bg-base);
 }
 
@@ -365,126 +367,63 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
     opacity: 0;
     transform: scale(1.05);
     z-index: 1;
+    /* Composite layer promotion for smoother slider animation */
+    will-change: opacity, transform;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Background image filling setup */
+.slide-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .slide.active-slide {
     opacity: 1;
+    transform: scale(1);
     z-index: 2;
 }
 
-/* Content Container Setup */
-.hero-foreground-content {
-    position: relative;
-    z-index: 5;
-    max-width: 950px;
-    padding: 0 24px;
-}
-
-.text-mask, .title-mask, .desc-mask, .btn-mask {
-    overflow: hidden;
-    margin-bottom: 16px;
-}
-
-.hero-micro-tag {
-    font-size: 0.8rem;
-    letter-spacing: 5px;
-    color: var(--brand-gold); /* Gold tag highlight */
-    font-weight: 700;
-    display: inline-block;
-}
-
+/* Fluid Typography Fix for Mobile performance */
 .hero-main-title {
-    font-size: 4.8rem;
+    /* Responsive font sizing between mobile (2.4rem) and desktop (4.8rem) */
+    font-size: clamp(2.4rem, 5vw + 1rem, 4.8rem);
     font-weight: 800;
     line-height: 1.15;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     color: var(--text-pure);
 }
 
-.hero-main-title span {
-    display: block;
-}
-
-.gold-accent-text {
-    color: var(--brand-gold);
-    font-weight: 600;
-}
-
 .hero-editorial-desc {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    line-height: 1.6;
     color: var(--text-muted);
     max-width: 620px;
     margin: 12px auto 32px;
     font-weight: 500;
 }
 
-/* Deluxe Action Button */
-.luxury-action-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--bg-base);
-    background-color: var(--brand-gold);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 18px 40px;
-    text-transform: uppercase;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-}
+/* Mobile Specific Refinement */
+@media (max-width: 768px) {
+    .hero-foreground-content {
+        padding: 0 16px;
+    }
+    
+    .hero-micro-tag {
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+    }
 
-.btn-arrow {
-    transition: transform 0.35s ease;
-}
-
-.luxury-action-btn:hover {
-    background-color: var(--text-pure);
-    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-.luxury-action-btn:hover .btn-arrow {
-    transform: translate(3px, -3px);
-}
-
-/* Dashboard Navigation Layout Controls (Symmetrical Center Fix) */
-.interactive-slider-controls {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.slider-dots-indicator {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.25);
-    transition: all 0.4s ease;
-}
-
-.dot.active-dot {
-    background-color: var(--brand-gold);
-    width: 20px;
-    border-radius: 6px;
+    .luxury-action-btn {
+        padding: 14px 28px;
+        font-size: 0.75rem;
+    }
 }
 
 /* ---------------------------------------------------------------------
@@ -5613,4 +5552,12 @@ body {
         width: 100% !important;
         justify-content: center !important;
     }
+}
+
+/* Fast Preloader for Lighthouse LCP Optimization */
+#preloader {
+    display: none !important;
+}
+body.is-loading {
+    overflow: auto !important;
 }
