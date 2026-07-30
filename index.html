@@ -9,9 +9,8 @@
   <meta name="description" content="Khaki Luxury Estates offers exclusive residential and commercial property listings, luxury villas, and expert real estate">
   <link rel="canonical" href="https://khaki-green.vercel.app/">
 
-  <!-- 🔥 CORRECT RESPONSIVE LCP PRELOAD (Fixes Mobile Double-Fetch) -->
-  <link rel="preload" as="image" href="assets/images/hero2-mobile.webp" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/hero2.webp" media="(min-width: 769px)" fetchpriority="high">
+  <!-- 🔥 CLEAN SINGLE LCP PRELOAD -->
+  <link rel="preload" as="image" href="assets/images/hero2.webp" fetchpriority="high">
 
   <!-- Preconnect for Faster Fonts Connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,19 +91,16 @@
 
             <!-- Slide 1: LCP IMAGE (Optimized) -->
             <div class="slide active-slide">
-                <picture>
-                    <source media="(max-width: 768px)" srcset="assets/images/hero2-mobile.webp">
-                    <img
-                        src="assets/images/hero2.webp"
-                        width="1920"
-                        height="1080"
-                        fetchpriority="high"
-                        loading="eager"
-                        decoding="async"
-                        alt="Modern Ultra-Luxury Villa with Warm Gold Lighting"
-                        class="slide-bg-img"
-                    >
-                </picture>
+                <img
+                    src="assets/images/hero2.webp"
+                    width="1920"
+                    height="1080"
+                    fetchpriority="high"
+                    loading="eager"
+                    decoding="async"
+                    alt="Modern Ultra-Luxury Villa with Warm Gold Lighting"
+                    class="slide-bg-img"
+                >
                 <div class="slide-overlay"></div>
             </div>
 
@@ -188,6 +184,9 @@
         </div>
     </section>
 </main>
+
+</body>
+</html>
 
    <section class="discovery-engine-section">
     <div class="section-container">
